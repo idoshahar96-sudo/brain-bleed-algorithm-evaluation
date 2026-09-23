@@ -1,4 +1,4 @@
-![Brain Bleed Detection and Evaluation](readme_banner.svg)
+![Brain Bleed Detection and Evaluation](readme_banner.png)
 
 # Brain Bleed Detection and Evaluation
 
