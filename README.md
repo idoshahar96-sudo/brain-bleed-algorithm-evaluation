@@ -40,9 +40,7 @@ deployment-workflow perspective.
   (10 min mean runtime vs. 45s) and far less consistent, with a much wider
   spread of runtimes. It only beats the radiologist's independent read on 46%
   of scans overall, which is a real deployability constraint.
-- Pairwise agreement tells a more nuanced story: algo1 and algo3 give the same
-  answer on 93% of scans, but that's driven almost entirely by matching
-  negative calls on the actual negatives, which have the absolute dominance in the data. Restricted to the actual positievs scans, which have the most significant medical value, the highest pairwise agreement is between algo2 and algo3, at 77%. Which means that if we will only care about detecting the actual positives, algo2 would fit.
+- Pairwise agreement tells a more nuanced story. Algo1 and Algo3 agree on 93% of scans, but this is driven almost entirely by shared negative calls on true negatives, which dominate the dataset. When we restrict the comparison to true positive scans, the cases with the greatest clinical significance, the highest agreement is between Algo2 and Algo3, at 77%. Together with its highest sensitivity of the three, as noted earlier, this agreement with Algo3 makes Algo2 the strongest choice when detecting true positives is the priority.
 
 ## Repo structure
 
