@@ -1,4 +1,6 @@
-![Brain Bleed Detection and Evaluation](readme_banner.png)
+<p align="center">
+  <img src="readme_banner.png" alt="Brain Bleed Detection and Evaluation" width="700">
+</p>
 
 # Brain Bleed Detection and Evaluation
 
