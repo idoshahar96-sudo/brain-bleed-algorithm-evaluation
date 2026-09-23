@@ -15,9 +15,7 @@ hospitalization). This project compares three algorithms and translates the find
 
 ## Background
 
-Intracranial hemorrhage (ICH) is a bleeding inside the skull and a time-critical
-finding on CT scans, where faster detection can materially change patient
-outcomes. AI triage tools are increasingly deployed alongside radiologists to
+Intracranial hemorrhage (ICH) is a condition involving bleeding within the skull and a time-critical finding on CT scans, where faster detection and intervention can significantly improve patient outcomes. AI triage tools are increasingly deployed alongside radiologists to
 flag likely-positive scans so they can be pulled out of an otherwise
 first-in-first-out reading queue and reviewed sooner.
 
@@ -35,12 +33,8 @@ deployment-workflow perspective.
 - Patient volume is unevenly split: one site handles roughly 70% of all scans
   versus 30% at the other, and inpatients outnumber ED cases at both sites
   (72% vs. 28%), in each hospital seperatly and also in overall.
-- Base positive rate is 9.5% overall (4.7% for ED, 11.4% for inpatient). That's low enough in both subgroups that a trivial    "always negative" baseline already scores ~90% accuracy, so accuracy is a poor metric with these imbaanced classes.
-- The three algorithms sit at very different points on the sensitivity/PPV
-  tradeoff (recall/precision): algo1 is a conservative,
-  high-specificity model (98% specificity, 51% sensitivity), algo2 is an
-  aggressive, high-recall model (92% sensitivity, but 86% of its alerts are
-  false alarms), and algo3 is a balanced model with the best F1 (0.73).
+- The overall positive rate for ICH is 9.5% (4.7% in the ED and 11.4% for inpatients), resulting in a notable class imbalance. With such a low prevalence, a trivial “always negative” classifier would already achieve ~90% accuracy, making other performence metrics more informative.
+- The three algorithms occupy very different points on the sensitivity–PPV (recall–precision) tradeoff. **Algo1 is the most conservative model**, achieving the highest precision (76%) and specificity (98%), but the lowest sensitivity (51%), meaning it misses nearly half of the positive cases. **Algo2 is the most aggressive model**, achieving the highest sensitivity (92%), but at the cost of the lowest precision (14%) and specificity (43%), which means 86% of its alerts being false positives. **Algo3 provides the most balanced performance**, ranking second in both sensitivity (74%) and specificity (97%) and achieving the highest F1-score (0.73).
 - Despite the prevalence gap between classes, algorithm rankings stay consistent: across all of the combinations per site × class, every metric except accuracy preserves the same ranking of algorithms seen in the overall numbers.
 - The downside is that algo3 is also ~13x slower than the fastest algorithm
   (10 min mean runtime vs. 45s) and far less consistent, with a much wider
@@ -48,8 +42,7 @@ deployment-workflow perspective.
   of scans overall, which is a real deployability constraint.
 - Pairwise agreement tells a more nuanced story: algo1 and algo3 give the same
   answer on 93% of scans, but that's driven almost entirely by matching
-  negative calls on the actual negatives, which have the absolute dominance in the data. Restricted to the actual positievs scans, which have the most significant medical value, the
-  highest pairwise agreement is between algo2 and algo3, at 77%.
+  negative calls on the actual negatives, which have the absolute dominance in the data. Restricted to the actual positievs scans, which have the most significant medical value, the highest pairwise agreement is between algo2 and algo3, at 77%. Which means that if we will only care about detecting the actual positives, algo2 would fit.
 
 ## Repo structure
 
