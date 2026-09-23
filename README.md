@@ -1,7 +1,3 @@
-<p align="left">
-  <img src="readme_banner.png" alt="Brain Bleed Detection and Evaluation" width="500">
-</p>
-
 # Brain Bleed Detection and Evaluation
 
 Data exploration and performance evaluation of three AI algorithms for detecting
@@ -14,6 +10,11 @@ error patterns), **Product** (how findings should change the workflow), and
 
 > All data is synthetically generated for this project and contains no real
 > patient information.
+
+<p align="left">
+  <img src="readme_banner.png" alt="Brain Bleed Detection and Evaluation" width="500">
+</p>
+
 
 ## Background
 
