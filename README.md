@@ -1,3 +1,5 @@
+![Brain Bleed Detection and Evaluation](readme_banner.svg)
+
 # Brain Bleed Detection and Evaluation
 
 Data exploration and performance evaluation of three AI algorithms for detecting
