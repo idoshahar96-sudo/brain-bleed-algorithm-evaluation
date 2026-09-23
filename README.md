@@ -64,6 +64,7 @@ deployment-workflow perspective.
 ├── viz.py                                        # plotting for both parts
 ├── ICH_data.csv                                  # dataset 
 ├── requirements.txt
+├── readme_banner.png
 └── README.md
 ```
 
