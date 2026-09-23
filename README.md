@@ -18,7 +18,7 @@ error patterns), **Product** (how findings should change the workflow), and
 
 ## Background
 
-Intracranial hemorrhage (ICH) - bleeding inside the skull - is a time-critical
+Intracranial hemorrhage (ICH) is a bleeding inside the skull and a time-critical
 finding on CT scans, where faster detection can materially change patient
 outcomes. AI triage tools are increasingly deployed alongside radiologists to
 flag likely-positive scans so they can be pulled out of an otherwise
