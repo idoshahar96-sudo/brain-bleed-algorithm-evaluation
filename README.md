@@ -1,5 +1,5 @@
-<p align="center">
-  <img src="readme_banner.png" alt="Brain Bleed Detection and Evaluation" width="700">
+<p align="left">
+  <img src="readme_banner.png" alt="Brain Bleed Detection and Evaluation" width="500">
 </p>
 
 # Brain Bleed Detection and Evaluation
