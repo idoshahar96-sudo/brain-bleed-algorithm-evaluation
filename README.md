@@ -1,12 +1,9 @@
 # Brain Bleed Detection and Evaluation
 
-Data exploration and performance evaluation of three AI algorithms for detecting
+This project contains data exploration and performance evaluation of three AI algorithms for detecting
 intracranial hemorrhage (brain bleeds) on CT scans, deployed across two hospital
 sites, each split into two patient departments (emergency vs. regular
-hospitalization). This project compares the three algorithms and concludes with
-recommendations for three audiences: **Algo** (classification performance and
-error patterns), **Product** (how findings should change the workflow), and
-**Ops** (runtime, latency, site-level operational gaps).
+hospitalization). This project compares three algorithms and translates the findings into recommendations for three key audiences: performance improvements for the Algo team, workflow improvements for the Product team, and operational improvements for the Ops team.
 
 > All data is synthetically generated for this project and contains no real
 > patient information.
