@@ -44,7 +44,7 @@ deployment-workflow perspective.
   high-specificity model (98% specificity, 51% sensitivity), algo2 is an
   aggressive, high-recall model (92% sensitivity, but 86% of its alerts are
   false alarms), and algo3 is a balanced model with the best F1 (0.73).
-- Despite the prevalence gap between classes, algorithm rankings stay consistent: across all combinations of site × class, every metric except accuracy preserves the same ranking of algorithms seen in the overall numbers.
+- Despite the prevalence gap between classes, algorithm rankings stay consistent: across all of the combinations per site × class, every metric except accuracy preserves the same ranking of algorithms seen in the overall numbers.
 - The downside is that algo3 is also ~13x slower than the fastest algorithm
   (10 min mean runtime vs. 45s) and far less consistent, with a much wider
   spread of runtimes. It only beats the radiologist's independent read on 46%
