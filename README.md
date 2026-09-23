@@ -9,6 +9,24 @@ error patterns), **Product** (how findings should change the workflow), and
 > All data is synthetically generated for this project and contains no real
 > patient information.
 
+## Background
+
+Intracranial hemorrhage (ICH) — bleeding inside the skull — is a time-critical
+finding on CT scans, where faster detection can materially change patient
+outcomes. AI triage tools are increasingly deployed alongside radiologists to
+flag likely-positive scans so they can be pulled out of an otherwise
+first-in-first-out reading queue and reviewed sooner.
+
+This project simulates exactly that setup: three independently trained
+detection algorithms, deployed across two hospital sites, each scanning every
+case in parallel and producing a positive/negative call. Radiologists still
+read every scan independently — their read is the ground truth used to
+evaluate the algorithms — but each algorithm's output could, in principle,
+both reorder the queue toward urgent cases and assist the radiologist on
+ambiguous findings. This analysis evaluates whether, and how well, each
+algorithm is actually fit for that role — from a classification-accuracy,
+operational-speed, and deployment-workflow perspective.
+
 ## Key findings
 
 - Base positive rate is 9.5%, more than doubling between ED (4.7%) and
@@ -35,16 +53,28 @@ error patterns), **Product** (how findings should change the workflow), and
 ├── exploration.py                            # Part 1: demographics, duration, prevalence, volume
 ├── performance.py                            # Part 2: confusion matrices, metrics, agreement, actionability
 ├── viz.py                                    # matplotlib/seaborn plotting for both parts
-├── ICH_data.csv                              # dataset (synthetic)
+├── data/ICH_data.csv                         # dataset (synthetic)
 ├── requirements.txt
 └── README.md
 ```
 
 ## Data
 
-Each row is one CT scan with patient/site metadata, the radiologist's
-ground-truth read, and each algorithm's prediction and timing. ~20,000 rows,
-two sites, three algorithms.
+~20,000 rows, two sites, three algorithms. Each row is one CT scan.
+
+| Column | Description |
+|---|---|
+| `accession` | Unique scan identifier. |
+| `site` | Hospital/site name. |
+| `patient_class` | `ED` = emergency department patient, `IN` = inpatient (regular hospitalization). |
+| `gender` | Patient's gender. |
+| `age` | Patient's age. |
+| `scan_timestamp` | When the CT scan was acquired (recorded automatically by the scanner). |
+| `radiologist_answer` | Ground truth: the radiologist's independent read, `P` (positive) or `N` (negative) for ICH. |
+| `radiologist_sign_time` | When the radiologist finished independently interpreting the scan. |
+| `algos_start_run` | When all three algorithms began analyzing the scan (in parallel), after it reached the server. |
+| `algo1_answer` / `algo2_answer` / `algo3_answer` | Each algorithm's prediction: `P` (positive) or `N` (negative). |
+| `algo1_finish_run` / `algo2_finish_run` / `algo3_finish_run` | When each algorithm finished processing the scan. |
 
 ## Running it
 
